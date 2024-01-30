@@ -38,3 +38,8 @@ kubectl rollout history deployment/first-app --revision 2
 
 To Go to Particular deployed revision
 kubectl rollout undo deployment/first-app --to-revision=5
+
+---
+
+To Run using Yaml file
+kubectl apply -f=deployment.yaml
