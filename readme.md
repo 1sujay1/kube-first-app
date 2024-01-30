@@ -43,3 +43,10 @@ kubectl rollout undo deployment/first-app --to-revision=5
 
 To Run using Yaml file
 kubectl apply -f=deployment.yaml
+OR
+kubectl apply -f .\deployment.yaml
+kubectl apply -f .\service.yaml
+
+To Delete using Yaml file
+
+kubectl delete -f .\deployment.yaml -f .\service.yaml
