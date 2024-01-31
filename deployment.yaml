@@ -2,12 +2,16 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: second-app-deployment
+  labels:
+    group: example
 spec:
   replicas: 1
   selector:
     matchLabels:
       app: second-app
       tier: backend
+    # matchExpression:
+    #   - { key: app, operation: In, values: [second-app, first-app] }
   template:
     metadata:
       labels:
@@ -17,5 +21,12 @@ spec:
       containers:
         - name: second-node
           image: sujaygowdag333/kube-first-app:4
+          imagePullPolicy: Always
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 8080
+            periodSeconds: 10
+            initialDelaySeconds: 5
         # - name: ...
         #   image: ...

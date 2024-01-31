@@ -50,3 +50,6 @@ kubectl apply -f .\service.yaml
 To Delete using Yaml file
 
 kubectl delete -f .\deployment.yaml -f .\service.yaml
+
+To delete Labels
+kubectl delete deployments,services -l group=example
